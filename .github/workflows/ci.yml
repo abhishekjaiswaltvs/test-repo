@@ -28,6 +28,7 @@ jobs:
         run: | 
           echo "branch=sync-$(date +%s)" >> $GITHUB_OUTPUT
           echo $GITHUB_OUTPUT
+          echo "${{ steps.branch.outputs.branch }}"
 
       - name: Add secondary repo as remote and push
         run: |
