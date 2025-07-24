@@ -60,7 +60,9 @@ jobs:
           git push --set-upstream origin ${{ steps.branch.outputs.branch }}
           
       - name: create pull request
-        run: gh pr create -B main -H ${{ steps.branch.outputs.branch }} --title 'Merge ${{ steps.branch.outputs.branch }} into main' --body 'Created by Github action'
+        run: |
+          cd /home/runner/work/test-repo/tvsm-sync-repo-copy
+          gh pr create -B main -H ${{ steps.branch.outputs.branch }} --title 'Merge ${{ steps.branch.outputs.branch }} into main' --body 'Created by Github action'
         env:
             GITHUB_TOKEN: ${{ secrets.TARGET_REPO_PAT }}     
           
