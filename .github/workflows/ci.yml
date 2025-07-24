@@ -25,7 +25,9 @@ jobs:
 
       - name: Create unique branch name
         id: branch
-        run: echo "branch=sync-$(date +%s)" >> $GITHUB_OUTPUT
+        run: | 
+          echo "branch=sync-$(date +%s)" >> $GITHUB_OUTPUT
+          echo $GITHUB_OUTPUT
 
       - name: Add secondary repo as remote and push
         run: |
