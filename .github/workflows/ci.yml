@@ -44,7 +44,7 @@ jobs:
           git config user.email "${{ secrets.EMAIL }}"
           git checkout -b ${{ steps.branch.outputs.branch }}
           cd ..
-          cp test-repo tvsm-sync-repo-copy
+          cp -r test-repo tvsm-sync-repo-copy
           cd tvsm-sync-repo-copy
           git add .
           git commit -m "Synced Code"
