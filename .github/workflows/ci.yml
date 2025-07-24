@@ -48,7 +48,7 @@ jobs:
           cd tvsm-sync-repo-copy
           git add .
           git commit -m "Synced Code"
-          git push --set-upstream target ${{ steps.branch.outputs.branch }}
+          git push --set-upstream origin ${{ steps.branch.outputs.branch }}
           
           
       - name: Create Pull Request
