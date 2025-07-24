@@ -60,13 +60,13 @@ jobs:
           git push --set-upstream origin ${{ steps.branch.outputs.branch }}
           
           
-      # - name: Create Pull Request
-      #   uses: peter-evans/create-pull-request@v6
-      #   with:
-      #     token: ${{ secrets.TARGET_REPO_PAT }}
-      #     repository: ${{ env.TARGET_REPO }}
-      #     title: "Auto-sync from primary repo"
-      #     head: ${{ steps.branch.outputs.branch }}
-      #     base: ${{ env.TARGET_BRANCH }}
-      #     body: |
-      #       This PR was automatically created by GitHub Actions to sync code from the primary repository.
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.TARGET_REPO_PAT }}
+          repository: ${{ env.TARGET_REPO }}
+          title: "Auto-sync from primary repo"
+          head: ${{ steps.branch.outputs.branch }}
+          base: ${{ env.TARGET_BRANCH }}
+          body: |
+            This PR was automatically created by GitHub Actions to sync code from the primary repository.
