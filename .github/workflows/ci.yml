@@ -26,9 +26,14 @@ jobs:
 
       - name: Display Variable
         run: |
-          echo "${{ steps.branch.outputs.branch }}"
+          pwd
           ls
           cd .. 
+          pwd
+          git clone "https://${{ secrets.USERNAME }}:${{ secrets.TARGET_REPO_PAT }}@github.com/${{ env.TARGET_REPO }}.git"
+          ls
+          cd ..
+          pwd
           ls
 
       # - name: Add secondary repo as remote and push
