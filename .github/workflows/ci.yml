@@ -27,11 +27,11 @@ jobs:
       - name: Display Variable
         run: |
           pwd
-          ls
+          ls -a
           cd .. 
           pwd
           git clone "https://${{ secrets.USERNAME }}:${{ secrets.TARGET_REPO_PAT }}@github.com/${{ env.TARGET_REPO }}.git"
-          ls
+          ls -a
           cd ..
           pwd
           ls
