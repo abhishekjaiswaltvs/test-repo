@@ -32,6 +32,7 @@ jobs:
           pwd
           git clone "https://${{ secrets.USERNAME }}:${{ secrets.TARGET_REPO_PAT }}@github.com/${{ env.TARGET_REPO }}.git"
           cp -r test-repo tvsm-sync-repo-copy
+          echo "Copying evrything from test-repo to tvsm-sync-repo-copy"
           ls -a 
           cd tvsm-sync-repo-copy
           pwd
@@ -43,20 +44,21 @@ jobs:
       #     git checkout -b ${{ steps.branch.outputs.branch }}
       #     git push --set-upstream target ${{ steps.branch.outputs.branch }}
 
-      - name: Clone target repo and push the changes
-        run: |
-          cd ..
-          git clone "https://${{ secrets.USERNAME }}:${{ secrets.TARGET_REPO_PAT }}@github.com/${{ env.TARGET_REPO }}.git"
-          cd tvsm-sync-repo-copy
-          git config user.name "${{ secrets.USERNAME }}"
-          git config user.email "${{ secrets.EMAIL }}"
-          git checkout -b ${{ steps.branch.outputs.branch }}
-          cd ..
-          cp -r test-repo tvsm-sync-repo-copy
-          cd tvsm-sync-repo-copy
-          git add .
-          git commit -m "Synced Code"
-          git push --set-upstream origin ${{ steps.branch.outputs.branch }}
+      # - name: Clone target repo and push the changes
+      #   run: |
+      #     cd ..
+      #     git clone "https://${{ secrets.USERNAME }}:${{ secrets.TARGET_REPO_PAT }}@github.com/${{ env.TARGET_REPO }}.git"
+      #     cd tvsm-sync-repo-copy
+      #     git config user.name "${{ secrets.USERNAME }}"
+      #     git config user.email "${{ secrets.EMAIL }}"
+      #     git checkout -b ${{ steps.branch.outputs.branch }}
+      #     cd ..
+      #     echo "Copying evrything from test-repo to tvsm-sync-repo-copy"
+      #     cp -r test-repo tvsm-sync-repo-copy
+      #     cd tvsm-sync-repo-copy
+      #     git add .
+      #     git commit -m "Synced Code"
+      #     git push --set-upstream origin ${{ steps.branch.outputs.branch }}
           
           
       # - name: Create Pull Request
